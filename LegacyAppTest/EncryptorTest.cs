@@ -7,12 +7,13 @@ namespace LegacyAppTest
     [TestClass]
     public class EncryptorTest
     {
+        Encryptor encryptor = new Encryptor();
+
         [TestCategory("EncryptorTests"), TestMethod()]
         public void GetWords_HappyCase()
         {
             // Arrange
             String sentence = "this is a sentence";
-            Encryptor encryptor = new Encryptor();
 
             // Act
             String[] words = encryptor.GetWords(sentence);
@@ -27,7 +28,6 @@ namespace LegacyAppTest
         {
             // Arrange
             String sentence = "abcdefg";
-            Encryptor encryptor = new Encryptor();
 
             // Act
             String words = encryptor.CryptSentence(sentence);
@@ -42,7 +42,6 @@ namespace LegacyAppTest
         {
             // Arrange
             String sentence = "abcdefg";
-            Encryptor encryptor = new Encryptor();
 
             // Act
             String words = encryptor.CryptWord(sentence);
@@ -57,7 +56,6 @@ namespace LegacyAppTest
         {
             // Arrange
             String sentence = "abcdefg";
-            Encryptor encryptor = new Encryptor();
 
             // Act
             String words = encryptor.CryptWord(sentence, "abc");
@@ -72,7 +70,6 @@ namespace LegacyAppTest
         {
             // Arrange
             String sentence = "abcde fg";
-            Encryptor encryptor = new Encryptor();
 
             // Assert
             Assert.ThrowsException<ArgumentException>(() => encryptor.CryptWord(sentence));
@@ -83,7 +80,6 @@ namespace LegacyAppTest
         {
             // Arrange
             String sentence = "kekistan";
-            Encryptor encryptor = new Encryptor();
 
             // Act
             string cryptSentence = encryptor.CryptWordToNumbers(sentence);
@@ -97,14 +93,11 @@ namespace LegacyAppTest
         public void PrintWords_HappyCase() {
             // Arrange
             String sentence = "kekistan";
-            Encryptor encryptor = new Encryptor();
 
             // Act
             encryptor.PrintWords(sentence);
 
             // Assert
-            Assert.
-
         }
 
     }
