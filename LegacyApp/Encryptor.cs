@@ -8,76 +8,95 @@ namespace LegacyApp
 {
     public class Encryptor
     {
-        public String CryptWord(String word)
+        private static int EncryptCharValue(int charValue)
+        {
+            return charValue + 2;
+        }
+
+        private static void ValidateForSpaces(string word)
         {
             if (word.Contains(" "))
             {
                 throw new ArgumentException();
             }
+        }
+
+        private static string Encrypt(string input, bool toChar)
+        {
+            char[] inputArray = input.ToCharArray();
+
+            String output = String.Empty;
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                int charValue = inputArray[i];
+
+                int encryptedChar = EncryptCharValue(charValue);
+                if (toChar)
+                {
+                    output += Convert.ToChar(encryptedChar);
+                }
+                else
+                {
+                    output += encryptedChar.ToString();
+                }
+            }
+
+            return output;
+        }
+
+        public String Word(String word)
+        {
+            ValidateForSpaces(word);
 
             char[] wordArray = word.ToCharArray();
 
-            String newWord = "";
-            for (int i = 0; i < word.Length; i++)
+            String newWord = String.Empty;
+            for (int index = 0; index < word.Length; index++)
             {
-                int charValue = wordArray[i];
-                newWord += Convert.ToChar(charValue + 2);
+                int charValue = wordArray[index];
+                newWord += Convert.ToChar(EncryptCharValue(charValue));
             }
 
             return newWord;
         }
 
-        public String CryptWordToNumbers(String word)
+        public String Word(String word, String charsToReplace)
         {
-            if (word.Contains(" "))
-                throw new ArgumentException();
+            ValidateForSpaces(word);
 
-            char[] wordArray = word.ToCharArray();
-
-            String newWord = "";
-
-            for (int i = 0; i < word.Length; i++)
-            {
-                int charValue = wordArray[i];
-                newWord += (charValue + 2).ToString();
-            }
-
-            return newWord;
-        }
-
-        public String CryptWord(String word, String charsToReplace)
-        {
-            if (word.Contains(" "))
-            {
-                throw new ArgumentException();
-            }
             char[] wordArray = word.ToCharArray();
             char[] replacement = charsToReplace.ToCharArray();
             char[] result = word.ToCharArray();
 
-            for (int i = 0; i < wordArray.Length; i++)
+            for (int wordIndex = 0; wordIndex < wordArray.Length; wordIndex++)
             {
-                for (int j = 0; j < replacement.Length; j++)
+                for (int replaceIndex = 0; replaceIndex < replacement.Length; replaceIndex++)
                 {
-                    if (replacement[j] == wordArray[i])
+                    if (replacement[replaceIndex] == wordArray[wordIndex])
                     {
-                        int charValue = wordArray[i];
-                        result[i] = (char)(charValue + 2);
+                        int charValue = wordArray[wordIndex];
+                        result[wordIndex] = Convert.ToChar(EncryptCharValue(charValue));
                     }
                 }
             }
-            return result.ToString();
+            return String.Join("", result);
         }
 
-        public String CryptSentence(String sentence)
+        public String ToNumbers(String word)
         {
-            char[] sentenceArray = sentence.ToCharArray();
-            String newWord = "";
-            for (int i = 0; i < sentence.Length; i++)
-            {
-                int charValue = sentenceArray[i];
-                newWord += Convert.ToChar(charValue + 2);
-            }
+            ValidateForSpaces(word);
+
+            string newWord = Encrypt(word, false);
+
+            return newWord;
+        }
+
+
+        public String Sentence(String sentence)
+        {
+            String newWord = Encrypt(sentence, true);
+
             return newWord;
         }
 

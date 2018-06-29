@@ -22,17 +22,17 @@ namespace LegacyApp
             }
             if (args.Length == 1)
             {
-                Console.WriteLine(encryptor.CryptWord(args[0]));
+                Console.WriteLine(encryptor.Word(args[0]));
             }
             if (args.Length >= 2)
             {
                 if (args[0].Equals("-n"))
                 {
-                    Console.WriteLine(encryptor.CryptWordToNumbers(args[1]));
+                    Console.WriteLine(encryptor.ToNumbers(args[1]));
                 }
                 else
                 {
-                    Console.WriteLine(encryptor.CryptSentence(String.Join(" ", args)));
+                    Console.WriteLine(encryptor.Sentence(String.Join(" ", args)));
                 }
             }
         }

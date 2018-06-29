@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegacyApp", "LegacyApp\Lega
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegacyAppTest", "LegacyAppTest\LegacyAppTest.csproj", "{D1376431-6852-43CD-A76F-6C21D1210A22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEOPreparerShould", "SEOPreparerShould\SEOPreparerShould.csproj", "{1F86258D-FAC9-454E-94E7-81E934072FAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEOPreparer", "SEOPreparer\SEOPreparer.csproj", "{C8644442-1374-4F00-A760-37EBA164EFFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{D1376431-6852-43CD-A76F-6C21D1210A22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1376431-6852-43CD-A76F-6C21D1210A22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1376431-6852-43CD-A76F-6C21D1210A22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F86258D-FAC9-454E-94E7-81E934072FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F86258D-FAC9-454E-94E7-81E934072FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F86258D-FAC9-454E-94E7-81E934072FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F86258D-FAC9-454E-94E7-81E934072FAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8644442-1374-4F00-A760-37EBA164EFFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8644442-1374-4F00-A760-37EBA164EFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8644442-1374-4F00-A760-37EBA164EFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8644442-1374-4F00-A760-37EBA164EFFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

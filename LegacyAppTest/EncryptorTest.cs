@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LegacyApp;
+using System.IO;
 
 namespace LegacyAppTest
 {
@@ -30,7 +31,7 @@ namespace LegacyAppTest
             String sentence = "abcdefg";
 
             // Act
-            String words = encryptor.CryptSentence(sentence);
+            String words = encryptor.Sentence(sentence);
 
             // Assert
             Assert.IsNotNull(words);
@@ -44,7 +45,7 @@ namespace LegacyAppTest
             String sentence = "abcdefg";
 
             // Act
-            String words = encryptor.CryptWord(sentence);
+            String words = encryptor.Word(sentence);
 
             // Assert
             Assert.IsNotNull(words);
@@ -58,11 +59,11 @@ namespace LegacyAppTest
             String sentence = "abcdefg";
 
             // Act
-            String words = encryptor.CryptWord(sentence, "abc");
+            String words = encryptor.Word(sentence, "abc");
 
             // Assert
             Assert.IsNotNull(words);
-            Assert.AreEqual("System.Char[]", words);
+            Assert.AreEqual("cdedefg", words);
         }
 
         [TestCategory("EncryptorTests"), TestMethod()]
@@ -72,7 +73,7 @@ namespace LegacyAppTest
             String sentence = "abcde fg";
 
             // Assert
-            Assert.ThrowsException<ArgumentException>(() => encryptor.CryptWord(sentence));
+            Assert.ThrowsException<ArgumentException>(() => encryptor.Word(sentence));
         }
 
         [TestCategory("EncryptorTests"), TestMethod()]
@@ -82,7 +83,7 @@ namespace LegacyAppTest
             String sentence = "kekistan";
 
             // Act
-            string cryptSentence = encryptor.CryptWordToNumbers(sentence);
+            string cryptSentence = encryptor.ToNumbers(sentence);
 
             // Assert
             Assert.IsNotNull(cryptSentence);
@@ -93,11 +94,14 @@ namespace LegacyAppTest
         public void PrintWords_HappyCase() {
             // Arrange
             String sentence = "kekistan";
+            StringWriter stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
 
             // Act
             encryptor.PrintWords(sentence);
 
             // Assert
+            Assert.AreEqual("<kekistan>", stringWriter.ToString());
         }
 
     }
