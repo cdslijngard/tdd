@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace LegacyApp
 {
-    class Encryptor
+    public class Encryptor
     {
-
         public String CryptWord(String word)
         {
             if (word.Contains(" "))
@@ -46,7 +45,7 @@ namespace LegacyApp
             return newWord;
         }
 
-        public String cryptWord(String word, String charsToReplace)
+        public String CryptWord(String word, String charsToReplace)
         {
             if (word.Contains(" "))
             {
@@ -87,7 +86,7 @@ namespace LegacyApp
             return sentence.Split(' ');
         }
 
-        public void printWords(String sentence)
+        public void PrintWords(String sentence)
         {
             String[] words = GetWords(sentence);
             foreach (String word in words)
