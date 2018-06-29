@@ -8,6 +8,10 @@ namespace LegacyApp
 {
     class Program
     {
+        /// <summary>
+        /// This is the main method of the application.
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             Encryptor encryptor = new Encryptor();
